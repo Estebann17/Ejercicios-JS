@@ -3,23 +3,42 @@
 
 // https://jsonplaceholder.typicode.com/posts
 
-async function fetchPosts() { 
+
+// FOREACH
+
+async function fetchPosts() {
     try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts'); // Realizo la solicitud asíncrona con la misma url 
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
 
-        const data = await response.json(); // Obtengo la respuesta a la api y la convierto en un objeto json
+        const data = await response.json();
 
-        array(data); // Acá llamo a la funcion que hice más abajo llamada array donde paso los datos 
+        data.forEach(post => {
+            console.log(post);
+        });
 
     } catch (error) {
-        console.error('Error: ', error); // El manejo de errores
+        console.error('Error: ', error);
     }
 }
 
-function array(data) {  // Acá recorro el array y lo imprimo en consola
-    for (let i = 0; i < data.length; i++) {
-        console.log(data[i]); 
+fetchPosts();
+
+
+// MAP 
+
+async function fetchPosts() {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+
+        const data = await response.json();
+
+        const datos = data.map(post => post.title);
+
+        console.log(datos);
+
+    } catch (error) {
+        console.error('Error: ', error);
     }
 }
 
-fetchPosts(); // Llamada a la función para que se inicie 
+fetchPosts();
