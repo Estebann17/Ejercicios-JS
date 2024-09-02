@@ -22,3 +22,33 @@ if (calculadora == 1) {
 } else {
     alert('Opción de operación incorrecta') // por si ponen una opción que no se encuentra en el prompt
 }
+
+
+// Switch Case
+
+
+function calculadora(operacion, num1, num2) {
+    let resultado; 
+
+    switch (operacion) {
+        case 'suma':
+            resultado = num1 + num2;
+            break;
+        case 'resta': 
+            resultado = num1 - num2;
+            break;
+        case 'multiplicacion':
+            resultado = num1 * num2;
+            break;
+        case 'division':
+            if (num2 === 0) {
+                return "Error: No se puede dividir entre 0";
+            }
+            resultado = num1 / num2;
+            break;
+        default: 
+            return 'La operación no es válida';        
+    }
+
+    return `El resultado de la ${operacion} es ${resultado}`;
+}
